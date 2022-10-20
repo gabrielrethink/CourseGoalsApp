@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Text, FlatList, View, Button, Pressable } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import Goal from "./components/Goal";
 import GoalInput from "./components/GoalInput";
 import styles from "./StylesApp";
@@ -24,43 +25,46 @@ export default function App() {
   };
 
   return (
-    <View style={styles.appContainer}>
-      <Pressable onPress={startModal}>
-        <Text
-          style={{
-            color: "#fff",
-            textAlign: "center",
-            marginBottom: 10,
-            fontSize: 22,
-            fontWeight: "bold",
-          }}
-        >
-          Add a new Goal
-        </Text>
-      </Pressable>
-      {/* <Button title="Add a new Goal" color={"#5e0acc"}*/}
-      <GoalInput
-        setModalIsVisible={setModalIsVisible}
-        visible={modalIsVisible}
-        goalList={goalList}
-        setGoalList={setGoalList}
-      />
+    <>
+      <StatusBar style="light" />
 
-      <View style={styles.goalsContainer}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={goalList}
-          renderItem={({ item, index }) => {
-            return (
-              <Goal
-                removeGoalHandler={removeGoalHandler}
-                item={item}
-                id={index}
-              />
-            );
-          }}
+      <View style={styles.appContainer}>
+        <View style={{ alignItems: "center" }}>
+          <Pressable
+            style={({ pressed }) =>
+              pressed
+                ? { ...styles.addGoalButton, backgroundColor: "green" }
+                : styles.addGoalButton
+            }
+            onPress={startModal}
+          >
+            <Text style={styles.addGoalText}>Add a new Goal</Text>
+          </Pressable>
+        </View>
+
+        <GoalInput
+          setModalIsVisible={setModalIsVisible}
+          visible={modalIsVisible}
+          goalList={goalList}
+          setGoalList={setGoalList}
         />
+
+        <View style={styles.goalsContainer}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={goalList}
+            renderItem={({ item, index }) => {
+              return (
+                <Goal
+                  removeGoalHandler={removeGoalHandler}
+                  item={item}
+                  id={index}
+                />
+              );
+            }}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 }

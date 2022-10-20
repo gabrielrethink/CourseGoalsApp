@@ -8,16 +8,25 @@ const styles = StyleSheet.create({
     backgroundColor: "#202020",
     flex: 1,
   },
-
+  addGoalButton: {
+    alignItems: "center",
+    textAlign: "center",
+    padding: 12,
+    borderRadius: 28,
+    marginBottom: 10,
+    borderWidth: 2,
+    borderColor: "#fff",
+  },
+  addGoalText: {
+    color: "#fff",
+    fontSize: 22,
+    fontWeight: "bold",
+  },
   inputContainer: {
     backgroundColor: "#202020",
-    // flex: 1,
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 24,
-
-    gap: 24,
   },
 
   addGoalDisabled: {
