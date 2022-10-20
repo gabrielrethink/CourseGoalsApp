@@ -5,21 +5,24 @@ const styles = StyleSheet.create({
     minHeight: 90,
     paddingTop: 50,
     paddingHorizontal: 16,
+    backgroundColor: "#202020",
+    flex: 1,
   },
 
   inputContainer: {
-    flex: 1,
+    backgroundColor: "#202020",
+    // flex: 1,
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 24,
-    borderBottomWidth: 1,
-    borderColor: "#ccc",
+
     gap: 24,
   },
 
   addGoalDisabled: {
     borderColor: "#ccc",
-    color: "#ccc",
+    color: "#fff",
   },
   buttonsContainer: {
     flexDirection: "row",
@@ -30,24 +33,24 @@ const styles = StyleSheet.create({
   buttonStyle: {
     borderColor: "#228B22",
     color: "#228B22",
-    borderWidth: 2,
+    borderWidth: 3,
     paddingVertical: 6,
     textAlign: "center",
+    fontWeight: "bold",
     borderRadius: 18,
   },
 
   textInput: {
-    borderWidth: 1,
-    borderColor: "green",
+    borderWidth: 2,
+    borderRadius: 6,
+    borderColor: "white",
     width: "70%",
     padding: 8,
-    color: "green",
+    color: "white",
     marginBottom: 12,
   },
 
-  goalsContainer: {
-    // backgroundColor: "cyan",
-  },
+  goalsContainer: {},
 
   goalItem: {
     backgroundColor: "#5e0acc",

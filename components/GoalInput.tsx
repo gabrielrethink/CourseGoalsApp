@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { Modal, Pressable, Text, TextInput, View } from "react-native";
+import { Image, Modal, Pressable, Text, TextInput, View } from "react-native";
 import styles from "../StylesApp";
+import Logo from "../assets/images/taskList.png";
 
 type GoalInputProps = {
   visible: boolean;
@@ -40,11 +41,16 @@ const GoalInput = ({
   };
 
   return (
+    // <View style={styles.appContainer}>
     <Modal visible={modalIsVisible} animationType={"slide"}>
       <View style={styles.inputContainer}>
+        <Image
+          style={{ height: 250, width: 250, marginBottom: 24 }}
+          source={Logo}
+        />
         <TextInput
           placeholder="Your course goals"
-          placeholderTextColor="#27a051"
+          placeholderTextColor="#fff"
           style={styles.textInput}
           onChangeText={goalInputHandler}
           value={newGoalTitle}
@@ -77,6 +83,7 @@ const GoalInput = ({
         </View>
       </View>
     </Modal>
+    // </View>
   );
 };
 

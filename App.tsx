@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, FlatList, View, Button } from "react-native";
+import { Text, FlatList, View, Button, Pressable } from "react-native";
 import Goal from "./components/Goal";
 import GoalInput from "./components/GoalInput";
 import styles from "./StylesApp";
@@ -25,7 +25,20 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <Button title="Add a new Goal" color={"#5e0acc"} onPress={startModal} />
+      <Pressable onPress={startModal}>
+        <Text
+          style={{
+            color: "#fff",
+            textAlign: "center",
+            marginBottom: 10,
+            fontSize: 22,
+            fontWeight: "bold",
+          }}
+        >
+          Add a new Goal
+        </Text>
+      </Pressable>
+      {/* <Button title="Add a new Goal" color={"#5e0acc"}*/}
       <GoalInput
         setModalIsVisible={setModalIsVisible}
         visible={modalIsVisible}
